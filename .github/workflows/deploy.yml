@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Deploy to Netlify"
     steps:
-      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
+      - uses: netlify/actions/cli@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.MY_AUTH_TOKEN }}
           NETLIFY_DEPLOY_TO_PROD: true
