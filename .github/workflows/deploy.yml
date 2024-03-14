@@ -1,0 +1,16 @@
+name: "Deploy"
+
+on:
+  pull_request:
+    types: closed
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    name: "Deploy to Netlify"
+    steps:
+      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
+        with:
+          NETLIIFY_AUTH_TOKEN: ${{ secrets.MY_AUTH_TOKEN }}
+          NETLIFY_DEPLOY_TO_PROD: true
